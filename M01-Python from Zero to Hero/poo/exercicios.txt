@@ -1,0 +1,25 @@
+============================================================
+Exercício da aula: Herança, Polimorfismo e Encapsulamento
+============================================================
+Exercício: Zoológico com Animais
+Crie uma hierarquia de classes para representar animais em um zoológico. 
+A classe base será Animal, e as subclasses representarão diferentes tipos de animais, como Mamíferos, Aves e Répteis. 
+============================================================
+
+============================================================
+Exercicio da aula: Métodos estáticos, de classe, de instância, etc
+============================================================
+1-Crie uma classe chamada ContaBancaria que:
+
+- Possua um atributo estático taxa com valor inicial 0.01.
+- Possua métodos:
+	- __init__(titular, saldo): Inicializa os atributos titular e saldo.
+	- depositar(valor): Adiciona ao saldo o valor depositado.
+	- sacar(valor): Subtrai do saldo o valor sacado.
+	- atualizar_taxa(nova_taxa): Método de classe que altera a taxa.
+	- calcular_juros(saldo): Método estático que retorna o juros de acordo com o saldo e a taxa atual.
+
+2-Crie instâncias, altere a taxa global e calcule juros usando os métodos criados.
+============================================================
+
+
