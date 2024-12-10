@@ -1,3 +1,4 @@
+from src.excecoes import CnpjInvalidoException
 from src.pessoa import Pessoa
 
 # criando a subclasse PessoaJuridica
@@ -11,3 +12,7 @@ class PessoaJuridica(Pessoa):
   
   def __str__(self):
     return f"PessoaJuridica(nome={self.get_nome()}, idade={self.get_idade()}, cnpj={self.cnpj})"    
+  
+  def validar_cnpj(self):
+    if len(self.cnpj) != 14 or not self.cnpj.isdigit():
+      raise CnpjInvalidoException()
