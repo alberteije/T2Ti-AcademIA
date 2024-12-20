@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NumPy vs Pandas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #007acc;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007acc;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        footer {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Comparação: NumPy vs Pandas</h1>
+    </header>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>NumPy</th>
+                    <th>Pandas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Propósito</td>
+                    <td>Computação numérica e manipulação de arrays/matrizes.</td>
+                    <td>Manipulação e análise de dados tabulares.</td>
+                </tr>
+                <tr>
+                    <td>Estrutura de Dados</td>
+                    <td><code>ndarray</code> (arrays homogêneos).</td>
+                    <td><code>Series</code> (unidimensional) e <code>DataFrame</code> (bidimensional).</td>
+                </tr>
+                <tr>
+                    <td>Tipo de Dados</td>
+                    <td>Homogêneos (todos os elementos do mesmo tipo).</td>
+                    <td>Heterogêneos (colunas podem ter tipos diferentes).</td>
+                </tr>
+                <tr>
+                    <td>Dados Ausentes</td>
+                    <td>Não tratado nativamente; usa <code>np.nan</code> para floats.</td>
+                    <td>Tratamento nativo com <code>NaN</code> e ferramentas específicas.</td>
+                </tr>
+                <tr>
+                    <td>Facilidade de Uso</td>
+                    <td>Mais baixo nível, técnico e próximo de arrays puros.</td>
+                    <td>Alto nível, amigável e próximo de tabelas do Excel.</td>
+                </tr>
+                <tr>
+                    <td>Performance</td>
+                    <td>Mais rápido para cálculos numéricos em arrays homogêneos.</td>
+                    <td>Mais eficiente para manipulação de dados complexos e heterogêneos.</td>
+                </tr>
+                <tr>
+                    <td>Principais Aplicações</td>
+                    <td>Álgebra linear, estatísticas, transformadas e computação numérica.</td>
+                    <td>Limpeza, transformação, agregação e análise de dados tabulares.</td>
+                </tr>
+                <tr>
+                    <td>Indexação</td>
+                    <td>Baseada em inteiros (0, 1, 2...).</td>
+                    <td>Baseada em rótulos e índices personalizados.</td>
+                </tr>
+                <tr>
+                    <td>Exemplo de Uso</td>
+                    <td>Cálculo de operações matemáticas em matrizes.</td>
+                    <td>Análise de dados financeiros ou manipulação de tabelas do Excel.</td>
+                </tr>
+                <tr>
+                    <td>Biblioteca Interna</td>
+                    <td>Independente.</td>
+                    <td>Baseado em NumPy para operações numéricas.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        &copy; 2024 - Comparação entre NumPy e Pandas. <a href="https://t2ti.com/academia/">T2Ti AcademIA</a>.
+    </footer>
+</body>
+</html>

@@ -33,6 +33,6 @@ sessao = Session()
 # sessao.commit()
 
 # consultando pessoas
-lista_pessoas = sessao.query(Pessoa).all()
-for pessoa in lista_pessoas:
-  print(f"nome da pessoa = {pessoa.nome} e idade da pessoa = {pessoa.idade}")
+# lista_pessoas = sessao.query(Pessoa).all()
+# for pessoa in lista_pessoas:
+#   print(f"nome da pessoa = {pessoa.nome} e idade da pessoa = {pessoa.idade}")
