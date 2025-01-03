@@ -1,0 +1,4 @@
+INSERT INTO talonario_cheque (id_banco_conta_caixa, talao, numero, status_talao) VALUES
+(2, 'TAL12345', 1001, 'N'),  -- Normal
+(4, 'TAL67890', 1002, 'C'),  -- Cancelado
+(6, 'TAL54321', 1003, 'E');  -- Extraviado
