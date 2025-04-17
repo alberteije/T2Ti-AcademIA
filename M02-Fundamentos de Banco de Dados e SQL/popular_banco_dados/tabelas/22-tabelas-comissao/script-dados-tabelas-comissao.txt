@@ -1,0 +1,36 @@
+-- Inserindo perfis de comissão
+INSERT INTO `comissao_perfil` (`id`, `codigo`, `nome`) VALUES
+(1, 'VDR', 'Perfil Vendedor'),
+(2, 'GCO', 'Perfil Gerente Comercial'),
+(3, 'SAC', 'Perfil Supervisor de Atendimento'),
+(4, 'CST', 'Perfil Consultor de Vendas'),
+(5, 'TEC', 'Perfil Técnico Comercial'),
+(6, 'EXT', 'Perfil Vendedor Externo'),
+(7, 'INT', 'Perfil Vendedor Interno'),
+(8, 'DIR', 'Perfil Diretor Comercial');
+
+-- Inserindo objetivos de comissão para diferentes perfis e produtos
+INSERT INTO `comissao_objetivo` (`id`, `id_comissao_perfil`, `id_produto`, `codigo`, `nome`, `descricao`, `forma_pagamento`, `taxa_pagamento`, `valor_pagamento`, `valor_meta`, `quantidade`) VALUES
+-- Objetivos para Vendedores (Perfil VDR)
+(1, 1, 1, 'VLR', 'Meta de Venda Bruta', 'Valor total bruto vendido no mês', 'p', 5.00, NULL, 50000.00, NULL),
+(2, 1, 2, 'QTD', 'Meta de Produto A', 'Quantidade vendida do Produto A', 'v', NULL, 50.00, NULL, 100.00),
+(3, 1, 3, 'MIX', 'Mix de Produtos', 'Venda de pelo menos 5 itens diferentes', 'v', NULL, 200.00, NULL, 5.00),
+
+-- Objetivos para Gerente Comercial (Perfil GCO)
+(4, 2, NULL, 'TML', 'Meta da Equipe', 'Valor total vendido pela equipe', 'p', 2.50, NULL, 250000.00, NULL),
+(5, 2, NULL, 'CLT', 'Novos Clientes', 'Cadastro de novos clientes', 'v', NULL, 150.00, NULL, 10.00),
+
+-- Objetivos para Consultor (Perfil CST)
+(6, 4, 4, 'ESP', 'Produto Especial', 'Venda do produto especial', 'p', 7.50, NULL, NULL, 50.00),
+(7, 4, 5, 'SER', 'Venda de Serviços', 'Valor em serviços contratados', 'p', 4.00, NULL, 30000.00, NULL),
+
+-- Objetivos para Técnico Comercial (Perfil TEC)
+(8, 5, 6, 'INS', 'Instalações', 'Quantidade de instalações realizadas', 'v', NULL, 80.00, NULL, 20.00),
+(9, 5, NULL, 'REC', 'Receita Técnica', 'Valor gerado em serviços técnicos', 'p', 3.00, NULL, 40000.00, NULL),
+
+-- Objetivos para Vendedor Externo (Perfil EXT)
+(10, 6, NULL, 'VIS', 'Visitas Realizadas', 'Número de visitas a clientes', 'v', NULL, 30.00, NULL, 40.00),
+(11, 6, NULL, 'PED', 'Pedidos Gerados', 'Número de pedidos fechados', 'v', NULL, 100.00, NULL, 15.00),
+
+-- Objetivos para Diretor Comercial (Perfil DIR)
+(12, 8, NULL, 'CRS', 'Crescimento', 'Aumento de faturamento vs último ano', 'p', 1.50, NULL, 10.00, NULL);
