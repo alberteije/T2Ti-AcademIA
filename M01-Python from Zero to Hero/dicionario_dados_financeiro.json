@@ -1,0 +1,940 @@
+{
+    "fin_status_parcela": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "situacao",
+            "tipo": "varchar(2)",
+            "chave_primaria": false,
+            "comentario": "Código que identifica a situação da parcela (AB=Aberto, PG=Pago, etc.)"
+        },
+        {
+            "coluna": "descricao",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Descrição textual do status da parcela"
+        },
+        {
+            "coluna": "procedimento",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Ação ou procedimento recomendado para parcelas com este status"
+        }
+    ],
+    "fin_tipo_pagamento": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "codigo",
+            "tipo": "varchar(2)",
+            "chave_primaria": false,
+            "comentario": "Código identificador do tipo de pagamento"
+        },
+        {
+            "coluna": "descricao",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Descrição do tipo de pagamento (ex: Cheque, Transferência)"
+        }
+    ],
+    "fin_tipo_recebimento": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "codigo",
+            "tipo": "varchar(2)",
+            "chave_primaria": false,
+            "comentario": "Código identificador do tipo de recebimento"
+        },
+        {
+            "coluna": "descricao",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Descrição do tipo de recebimento (ex: PIX, Boleto)"
+        }
+    ],
+    "fin_documento_origem": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "codigo",
+            "tipo": "char(3)",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "sigla",
+            "tipo": "char(10)",
+            "chave_primaria": false,
+            "comentario": "Exemplos: NF, CHQ, NFe, DP, NP, CTe, CT, CF, CFe"
+        },
+        {
+            "coluna": "descricao",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Descrição completa do tipo de documento"
+        }
+    ],
+    "fin_cheque_emitido": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_cheque",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID único do cheque emitido"
+        },
+        {
+            "coluna": "data_emissao",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o cheque foi emitido (preenchido)"
+        },
+        {
+            "coluna": "bom_para",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data até quando o cheque é válido para compensação"
+        },
+        {
+            "coluna": "data_compensacao",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o cheque foi compensado no banco (quando houve)"
+        },
+        {
+            "coluna": "valor",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor monetário do cheque"
+        },
+        {
+            "coluna": "nominal_a",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Nome do favorecido/beneficiário do cheque"
+        }
+    ],
+    "fin_cheque_recebido": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_pessoa",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID da pessoa (cliente/fornecedor) que emitiu o cheque"
+        },
+        {
+            "coluna": "cpf",
+            "tipo": "varchar(11)",
+            "chave_primaria": false,
+            "comentario": "CPF do emitente do cheque (para pessoa física)"
+        },
+        {
+            "coluna": "cnpj",
+            "tipo": "varchar(14)",
+            "chave_primaria": false,
+            "comentario": "CNPJ do emitente do cheque (para pessoa jurídica)"
+        },
+        {
+            "coluna": "nome",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Nome do emitente do cheque"
+        },
+        {
+            "coluna": "codigo_banco",
+            "tipo": "varchar(3)",
+            "chave_primaria": false,
+            "comentario": "Código do banco onde o cheque foi emitido"
+        },
+        {
+            "coluna": "codigo_agencia",
+            "tipo": "varchar(4)",
+            "chave_primaria": false,
+            "comentario": "Código da agência bancária do cheque"
+        },
+        {
+            "coluna": "conta",
+            "tipo": "varchar(10)",
+            "chave_primaria": false,
+            "comentario": "Número da conta bancária do cheque"
+        },
+        {
+            "coluna": "numero",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número sequencial do cheque"
+        },
+        {
+            "coluna": "data_emissao",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o cheque foi emitido"
+        },
+        {
+            "coluna": "bom_para",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data até quando o cheque é válido para compensação"
+        },
+        {
+            "coluna": "data_compensacao",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o cheque foi compensado no banco"
+        },
+        {
+            "coluna": "valor",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor monetário do cheque"
+        },
+        {
+            "coluna": "custodia_data",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o cheque foi enviado para custódia bancária"
+        },
+        {
+            "coluna": "custodia_tarifa",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor da tarifa cobrada pelo serviço de custódia"
+        },
+        {
+            "coluna": "custodia_comissao",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor da comissão cobrada pelo serviço de custódia"
+        },
+        {
+            "coluna": "desconto_data",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o cheque foi enviado para desconto bancário"
+        },
+        {
+            "coluna": "desconto_tarifa",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor da tarifa cobrada pelo serviço de desconto"
+        },
+        {
+            "coluna": "desconto_comissao",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor da comissão cobrada pelo serviço de desconto"
+        },
+        {
+            "coluna": "valor_recebido",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor líquido recebido após dedução de tarifas e comissões"
+        }
+    ],
+    "fin_configuracao_boleto": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_banco_conta_caixa",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID da conta bancária/caixa à qual esta configuração se aplica"
+        },
+        {
+            "coluna": "instrucao01",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Primeira instrução que aparece no boleto (ex: Não receber após vencimento)"
+        },
+        {
+            "coluna": "instrucao02",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Segunda instrução que aparece no boleto (ex: Multa após vencimento)"
+        },
+        {
+            "coluna": "caminho_arquivo_remessa",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Caminho no sistema de arquivos para gravar remessas bancárias"
+        },
+        {
+            "coluna": "caminho_arquivo_retorno",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Caminho no sistema de arquivos para ler retornos bancários"
+        },
+        {
+            "coluna": "caminho_arquivo_logotipo",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Caminho para o arquivo de logotipo exibido no boleto"
+        },
+        {
+            "coluna": "caminho_arquivo_pdf",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Caminho para salvar os boletos gerados em PDF"
+        },
+        {
+            "coluna": "mensagem",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Mensagem livre que aparece no boleto (ex: Pagar preferencialmente até...)"
+        },
+        {
+            "coluna": "local_pagamento",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Local onde o boleto pode ser pago (ex: Pagável em qualquer banco)"
+        },
+        {
+            "coluna": "layout_remessa",
+            "tipo": "varchar(3)",
+            "chave_primaria": false,
+            "comentario": "Código do layout de remessa bancária (ex: 400, 500)"
+        },
+        {
+            "coluna": "aceite",
+            "tipo": "varchar(1)",
+            "chave_primaria": false,
+            "comentario": "Indica se o boleto tem aceite (S) ou não (N)"
+        },
+        {
+            "coluna": "especie",
+            "tipo": "varchar(1)",
+            "chave_primaria": false,
+            "comentario": "Espécie do documento (ex: DM-Duplicata Mercantil)"
+        },
+        {
+            "coluna": "carteira",
+            "tipo": "varchar(3)",
+            "chave_primaria": false,
+            "comentario": "Código da carteira bancária usada para cobrança"
+        },
+        {
+            "coluna": "codigo_convenio",
+            "tipo": "varchar(6)",
+            "chave_primaria": false,
+            "comentario": "Código do convênio de cobrança com o banco"
+        },
+        {
+            "coluna": "codigo_cedente",
+            "tipo": "varchar(7)",
+            "chave_primaria": false,
+            "comentario": "Código do cedente (beneficiário) no banco"
+        },
+        {
+            "coluna": "taxa_multa",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de multa aplicado após o vencimento"
+        },
+        {
+            "coluna": "taxa_juro",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de juros ao mês aplicado após vencimento"
+        },
+        {
+            "coluna": "dias_protesto",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número de dias após vencimento para protesto (0=não protestar)"
+        },
+        {
+            "coluna": "nosso_numero_anterior",
+            "tipo": "varchar(10)",
+            "chave_primaria": false,
+            "comentario": "Último nosso número utilizado na emissão de boletos"
+        }
+    ],
+    "fin_extrato_conta_banco": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_banco_conta_caixa",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID da conta bancária/caixa a que pertence este lançamento"
+        },
+        {
+            "coluna": "mes_ano",
+            "tipo": "varchar(7)",
+            "chave_primaria": false,
+            "comentario": "Mês e ano do lançamento no formato MM-AAAA"
+        },
+        {
+            "coluna": "mes",
+            "tipo": "varchar(2)",
+            "chave_primaria": false,
+            "comentario": "Mês numérico do lançamento (1 a 12)"
+        },
+        {
+            "coluna": "ano",
+            "tipo": "varchar(4)",
+            "chave_primaria": false,
+            "comentario": "Ano do lançamento com 4 dígitos"
+        },
+        {
+            "coluna": "data_movimento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o movimento ocorreu no banco"
+        },
+        {
+            "coluna": "data_balancete",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o movimento foi registrado no balancete"
+        },
+        {
+            "coluna": "historico",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Descrição/histórico do lançamento bancário"
+        },
+        {
+            "coluna": "documento",
+            "tipo": "varchar(10)",
+            "chave_primaria": false,
+            "comentario": "Número do documento associado ao lançamento"
+        },
+        {
+            "coluna": "valor",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor do lançamento (positivo=crédito, negativo=débito)"
+        },
+        {
+            "coluna": "conciliado",
+            "tipo": "varchar(1)",
+            "chave_primaria": false,
+            "comentario": "Indica se o lançamento foi conciliado (S=Sim, N=Não)"
+        },
+        {
+            "coluna": "observacao",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Observações adicionais sobre o lançamento"
+        }
+    ],
+    "fin_fechamento_caixa_banco": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_banco_conta_caixa",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID da conta bancária/caixa que está sendo fechada"
+        },
+        {
+            "coluna": "data_fechamento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que foi realizado o fechamento"
+        },
+        {
+            "coluna": "mes_ano",
+            "tipo": "varchar(7)",
+            "chave_primaria": false,
+            "comentario": "Mês e ano do fechamento no formato MM-AAAA"
+        },
+        {
+            "coluna": "mes",
+            "tipo": "varchar(2)",
+            "chave_primaria": false,
+            "comentario": "Mês numérico do fechamento (1 a 12)"
+        },
+        {
+            "coluna": "ano",
+            "tipo": "varchar(4)",
+            "chave_primaria": false,
+            "comentario": "Ano do fechamento com 4 dígitos"
+        },
+        {
+            "coluna": "saldo_anterior",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Saldo da conta no final do mês anterior"
+        },
+        {
+            "coluna": "recebimentos",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Total de recebimentos (créditos) no mês"
+        },
+        {
+            "coluna": "pagamentos",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Total de pagamentos (débitos) no mês"
+        },
+        {
+            "coluna": "saldo_conta",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Saldo atual da conta (saldo anterior + recebimentos - pagamentos)"
+        },
+        {
+            "coluna": "cheque_nao_compensado",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor total de cheques emitidos mas ainda não compensados"
+        },
+        {
+            "coluna": "saldo_disponivel",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Saldo disponível (saldo conta - cheques não compensados)"
+        }
+    ],
+    "fin_lancamento_pagar": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_documento_origem",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_natureza_financeira",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID da natureza financeira (classificação contábil)"
+        },
+        {
+            "coluna": "id_fornecedor",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID do fornecedor/credor a quem será feito o pagamento"
+        },
+        {
+            "coluna": "id_banco_conta_caixa",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID da conta bancária/caixa de onde sairá o pagamento"
+        },
+        {
+            "coluna": "quantidade_parcela",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número total de parcelas deste lançamento"
+        },
+        {
+            "coluna": "valor_a_pagar",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor total a ser pago neste lançamento"
+        },
+        {
+            "coluna": "data_lancamento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o lançamento foi registrado no sistema"
+        },
+        {
+            "coluna": "numero_documento",
+            "tipo": "varchar(20)",
+            "chave_primaria": false,
+            "comentario": "Número do documento que originou este lançamento"
+        },
+        {
+            "coluna": "imagem_documento",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Caminho para imagem digitalizada do documento (se houver)"
+        },
+        {
+            "coluna": "primeiro_vencimento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data de vencimento da primeira parcela"
+        },
+        {
+            "coluna": "intervalo_entre_parcelas",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número de dias entre o vencimento de cada parcela"
+        },
+        {
+            "coluna": "dia_fixo",
+            "tipo": "varchar(2)",
+            "chave_primaria": false,
+            "comentario": "Dia fixo do mês para vencimento (se aplicável)"
+        }
+    ],
+    "fin_lancamento_receber": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_documento_origem",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_natureza_financeira",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_cliente",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID do cliente/devedor que deve pagar este lançamento"
+        },
+        {
+            "coluna": "id_banco_conta_caixa",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID da conta bancária/caixa onde será recebido o valor"
+        },
+        {
+            "coluna": "quantidade_parcela",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número total de parcelas deste lançamento"
+        },
+        {
+            "coluna": "valor_a_receber",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor total a ser recebido neste lançamento"
+        },
+        {
+            "coluna": "data_lancamento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que o lançamento foi registrado no sistema"
+        },
+        {
+            "coluna": "numero_documento",
+            "tipo": "varchar(20)",
+            "chave_primaria": false,
+            "comentario": "Número do documento que originou este lançamento"
+        },
+        {
+            "coluna": "primeiro_vencimento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data de vencimento da primeira parcela"
+        },
+        {
+            "coluna": "taxa_comissao",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de comissão sobre o valor (se aplicável)"
+        },
+        {
+            "coluna": "valor_comissao",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor calculado da comissão (taxa_comissao * valor_a_receber)"
+        },
+        {
+            "coluna": "intervalo_entre_parcelas",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número de dias entre o vencimento de cada parcela"
+        },
+        {
+            "coluna": "dia_fixo",
+            "tipo": "varchar(2)",
+            "chave_primaria": false,
+            "comentario": "Dia fixo do mês para vencimento (se aplicável)"
+        }
+    ],
+    "fin_parcela_pagar": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_lancamento_pagar",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_status_parcela",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_tipo_pagamento",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_cheque_emitido",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID do cheque emitido (se o pagamento foi feito com cheque)"
+        },
+        {
+            "coluna": "numero_parcela",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número sequencial da parcela (1, 2, 3...)"
+        },
+        {
+            "coluna": "data_emissao",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que a parcela foi emitida/gerada"
+        },
+        {
+            "coluna": "data_vencimento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que a parcela vence"
+        },
+        {
+            "coluna": "data_pagamento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que a parcela foi efetivamente paga (se já paga)"
+        },
+        {
+            "coluna": "desconto_ate",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data limite para pagamento com desconto"
+        },
+        {
+            "coluna": "valor",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor nominal original da parcela"
+        },
+        {
+            "coluna": "taxa_juro",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de juros aplicável em caso de atraso"
+        },
+        {
+            "coluna": "taxa_multa",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de multa aplicável em caso de atraso"
+        },
+        {
+            "coluna": "taxa_desconto",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de desconto para pagamento antecipado"
+        },
+        {
+            "coluna": "valor_juro",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor calculado de juros (se aplicável)"
+        },
+        {
+            "coluna": "valor_multa",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor calculado de multa (se aplicável)"
+        },
+        {
+            "coluna": "valor_desconto",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor calculado de desconto (se aplicável)"
+        },
+        {
+            "coluna": "valor_pago",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor efetivamente pago (valor - desconto + juros/multa)"
+        },
+        {
+            "coluna": "historico",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Histórico ou observações sobre esta parcela"
+        }
+    ],
+    "fin_parcela_receber": [
+        {
+            "coluna": "id",
+            "tipo": "int unsigned",
+            "chave_primaria": true,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_lancamento_receber",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID do lançamento a receber ao qual esta parcela pertence"
+        },
+        {
+            "coluna": "id_fin_status_parcela",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "ID do status atual da parcela (aberta, paga, etc.)"
+        },
+        {
+            "coluna": "id_fin_tipo_recebimento",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "id_fin_cheque_recebido",
+            "tipo": "int unsigned",
+            "chave_primaria": false,
+            "comentario": ""
+        },
+        {
+            "coluna": "numero_parcela",
+            "tipo": "int",
+            "chave_primaria": false,
+            "comentario": "Número sequencial da parcela (1, 2, 3...)"
+        },
+        {
+            "coluna": "data_emissao",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que a parcela foi emitida/gerada"
+        },
+        {
+            "coluna": "data_vencimento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que a parcela vence"
+        },
+        {
+            "coluna": "data_recebimento",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data em que a parcela foi efetivamente recebida (se já recebida)"
+        },
+        {
+            "coluna": "desconto_ate",
+            "tipo": "date",
+            "chave_primaria": false,
+            "comentario": "Data limite para recebimento com desconto"
+        },
+        {
+            "coluna": "valor",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor nominal original da parcela"
+        },
+        {
+            "coluna": "taxa_juro",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de juros aplicável em caso de atraso"
+        },
+        {
+            "coluna": "taxa_multa",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de multa aplicável em caso de atraso"
+        },
+        {
+            "coluna": "taxa_desconto",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Percentual de desconto para recebimento antecipado"
+        },
+        {
+            "coluna": "valor_juro",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor calculado de juros (se aplicável)"
+        },
+        {
+            "coluna": "valor_multa",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor calculado de multa (se aplicável)"
+        },
+        {
+            "coluna": "valor_desconto",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor calculado de desconto (se aplicável)"
+        },
+        {
+            "coluna": "emitiu_boleto",
+            "tipo": "varchar(1)",
+            "chave_primaria": false,
+            "comentario": "Indica se foi emitido boleto para esta parcela (S=Sim, N=Não)"
+        },
+        {
+            "coluna": "boleto_nosso_numero",
+            "tipo": "varchar(10)",
+            "chave_primaria": false,
+            "comentario": "Nosso número do boleto (se foi emitido)"
+        },
+        {
+            "coluna": "valor_recebido",
+            "tipo": "decimal(18,6)",
+            "chave_primaria": false,
+            "comentario": "Valor efetivamente recebido (valor - desconto + juros/multa)"
+        },
+        {
+            "coluna": "historico",
+            "tipo": "varchar(255)",
+            "chave_primaria": false,
+            "comentario": "Histórico ou observações sobre esta parcela"
+        }
+    ]
+}
